@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/trains")
 public class TrainController {
@@ -32,5 +35,20 @@ public class TrainController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(response);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TrainResponse>> getAllTrains() {
+        List<TrainResponse> response = trainService.getAllTrains()
+                .stream()
+                .map(TrainResponse::fromEntity)
+                .toList();
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TrainResponse> getTrainById(@PathVariable Long id) {
+        Train train = trainService.getTrainById(id);
+        return ResponseEntity.ok(TrainResponse.fromEntity(train));
     }
 }
