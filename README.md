@@ -13,16 +13,6 @@ A high-concurrency railway ticket booking platform built to explore backend engi
 - Prometheus and Grafana (planned)
 - React and TypeScript (planned)
 
-## Project Status
-
-**Phase 1 — Backend Foundation**
-
-- [x] Spring Boot project setup
-- [x] Basic REST health endpoint
-- [ ] PostgreSQL integration
-- [ ] Train management APIs
-- [ ] Booking and seat inventory management
-
 ## Run Locally
 
 From the `backend` directory:
